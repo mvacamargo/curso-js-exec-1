@@ -1,0 +1,18 @@
+{
+  "name": "exec1",
+  "version": "1.0.0",
+  "description": "Primeiro Exercício do Curso de Javascript",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "author": "Marcus Vinicius Aparecido Camargo",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "marko": "^4.18.11",
+    "mysql": "^2.17.1"
+  }
+}
