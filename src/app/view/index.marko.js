@@ -2,7 +2,7 @@
 "use strict";
 
 var marko_template = module.exports = require("marko/src/html").t(__filename),
-    marko_componentType = "/exec1$1.0.0/src/app/views/index.marko",
+    marko_componentType = "/exec1$1.0.0/src/app/view/index.marko",
     components_helpers = require("marko/src/runtime/components/helpers"),
     marko_renderer = components_helpers.r,
     marko_defineComponent = components_helpers.c,
@@ -19,11 +19,11 @@ function render(input, out, __component, component, state) {
 
   component_globals_tag({}, out);
 
-  out.w("<h1>ACESSO</h1><form action=\"/acesso\" method=\"post\"><input type=\"text\" name=\"usuario\"><input type=\"password\" name=\"senha\"><input type=\"submit\" value=\"Acesso\"></form>");
+  out.w("<h1>ACESSO</h1><form action=\"/usuario/login\" method=\"post\">Usuário: <input type=\"text\" name=\"usuario\"> Senha: <input type=\"password\" name=\"senha\"><input type=\"submit\" value=\"Acesso\"></form><a href=\"/usuario/new\">Cadastrar Acesso</a>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "7");
+  await_reorderer_tag({}, out, __component, "8");
 
   out.w("</body></html>");
 }
@@ -36,7 +36,7 @@ marko_template._ = marko_renderer(render, {
 marko_template.Component = marko_defineComponent({}, marko_template._);
 
 marko_template.meta = {
-    id: "/exec1$1.0.0/src/app/views/index.marko",
+    id: "/exec1$1.0.0/src/app/view/index.marko",
     tags: [
       "marko/src/core-tags/components/component-globals-tag",
       "marko/src/core-tags/components/init-components-tag",

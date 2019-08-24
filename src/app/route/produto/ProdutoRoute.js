@@ -1,6 +1,6 @@
-const db = require('../../../config/database.js');
+const db = require('../../../config/database');
 
-const ProdutosDAO = require('../../bd/produtos/produtosDAO.js')
+const ProdutosDAO = require('../../dao/produto/ProdutoDAO')
 
 module.exports = (app) => {
 
@@ -8,7 +8,7 @@ module.exports = (app) => {
         const produtosDAO = new ProdutosDAO(db);
         produtosDAO.selectAllByCategoria(idCategoria, function (error, dados) {
             res.marko(
-                require(''), {
+                require('./node_modules'), {
                     dados: dados
                 }
             );

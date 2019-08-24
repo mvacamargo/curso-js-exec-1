@@ -1,4 +1,4 @@
-class UsuariosDAO {
+class UsuarioDAO {
 
     constructor(db) {
         this._db = db;
@@ -6,7 +6,7 @@ class UsuariosDAO {
 
     insert(usuario) {
         return new Promise((resolve, reject) => {
-            var sqlInsere = "INSERT INTO USUARIOS ('nomeUsr', 'emailUsr', loginUsr', 'senhaUsr') VALUES ('" + usuario.nome + "','" + usuario.email + "','" + usuario.login + "','" + usuario.senha + "')";
+            var sqlInsere = "INSERT INTO USUARIOS (nomeUsr, emailUsr, loginUsr, senhaUsr) VALUES ('" + usuario.nome + "','" + usuario.email + "','" + usuario.login + "','" + usuario.senha + "')";
             console.log(sqlInsere);
             this._db.query(sqlInsere, function (erro) {
                 if (erro) {
@@ -28,4 +28,4 @@ class UsuariosDAO {
 
 }
 
-module.exports = UsuariosDAO;
+module.exports = UsuarioDAO;

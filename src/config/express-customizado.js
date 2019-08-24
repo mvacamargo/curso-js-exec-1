@@ -9,14 +9,14 @@ app.use(bodyParser.urlencoded({
 
 app.use('/estatico', express.static('src/app/views/clientes'));
 
-const rotasIndex = require('../app/rotas/indexRota.js');
-rotasIndex(app);
-const rotasUsuarios = require('../app/rotas/usuarios/usuariosRota.js');
-rotasUsuarios(app);
-const rotasCategoriaProdutos = require('../app/rotas/categoriaproduto/categoriaprodutoRota.js');
-rotasCategoriaProdutos(app);
-const rotasProdutos = require('../app/rotas/produtos/produtosRota.js');
-rotasProdutos(app);
+const indexRoute = require('../app/route/IndexRoute');
+indexRoute(app);
+const usuarioRoute = require('../app/route/usuario/UsuarioRoute');
+usuarioRoute(app);
+const categoriaProdutoRoute = require('../app/route/categoriaproduto/CategoriaProdutoRoute');
+categoriaProdutoRoute(app);
+const produtoRoute = require('../app/route/produto/ProdutoRoute');
+produtoRoute(app);
 
 require('marko/node-require').install();
 require('marko/express');

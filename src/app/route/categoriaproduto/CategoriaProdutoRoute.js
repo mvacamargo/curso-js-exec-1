@@ -1,6 +1,6 @@
-const db = require('../../../config/database.js');
+const db = require('../../../config/database');
 
-const CategoriaProdutoDAO = require('../../bd/categoriaproduto/categoriaprodutoDAO.js')
+const CategoriaProdutoDAO = require('../../dao/categoriaproduto/CategoriaProdutoDAO')
 
 module.exports = (app) => {
 
