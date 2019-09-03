@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"/>
+    <script>
+    function carregaProdutos(){
+      alert($("#cmbCategoria option:selected").val());
+      $.ajax({
+        method: "GET",
+        url: "http://localhost:3000/produto/" + $("#cmbCategoria option:selected").val()        
+      }).done(function( data ) {
+        alert( "Data Saved: " + data );
+      });
+    }
+    </script>
+  </head>
+  <body>
+    <h1>PRODUTO</h1>
+    <label>Categorias</label>
+    <select id="cmbCategoria" onchange="carregaProdutos()">
+      <for|categoria| of=data.categorias>
+        <option value="${categoria.idCatProd}">${categoria.descCatProd}</option>
+      </for>
+    </select>
+    <label>Produtos</label>
+    <select id="cmbProduto"/>
+  </body>
+</html>

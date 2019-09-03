@@ -4,9 +4,9 @@ class ProdutosDAO {
         this._db = db;
     }
 
-    selectAllByCategoria(callback) {
+    selectAllByCategoria(idCatProd, callback) {
         this._db.query(
-            "SELECT * FROM PRODUTO AS a INNER JOIN CATEGORIAPRODUTO AS b ON a.idCatProd = b.IdCatProd ORDER BY a.descProd", (erro, resultados) => {
+            "SELECT * FROM PRODUTO AS a INNER JOIN CATEGORIAPRODUTO AS b ON a.idCatProd = b.IdCatProd WHERE b.idCatProd = " + idCatProd + " ORDER BY a.descProd", (erro, resultados) => {
                 callback(erro, resultados);
             });
     }

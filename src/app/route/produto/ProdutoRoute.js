@@ -1,18 +1,10 @@
-const db = require('../../../config/database');
-
-const ProdutosDAO = require('../../dao/produto/ProdutoDAO')
+const ProdutoController = require('../../controller/produto/ProdutoController');
+const produtoController = new ProdutoController();
 
 module.exports = (app) => {
 
-    app.get('/produtos', function (req, res) {
-        const produtosDAO = new ProdutosDAO(db);
-        produtosDAO.selectAllByCategoria(idCategoria, function (error, dados) {
-            res.marko(
-                require('./node_modules'), {
-                    dados: dados
-                }
-            );
-        });
-    })
+    app.get('/produtos', produtoController.formListaProduto())
+
+    app.get('/produtos/:idCatProd', produtoController.buscaProdutoPorCategoria())
 
 }

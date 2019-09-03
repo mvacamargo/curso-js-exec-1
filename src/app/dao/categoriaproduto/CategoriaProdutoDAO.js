@@ -5,10 +5,11 @@ class CategoriaProdutoDAO {
     }
 
     selectAll(callback) {
-        this._db.query(
-            "SELECT * FROM CATEGORIAPRODUTO AS a ORDER BY a.descCatProd", (erro, resultados) => {
-                callback(erro, resultados);
-            });
+        var sqlCons = "SELECT * FROM CATEGORIAPRODUTO AS a ORDER BY a.descCatProd";
+        console.log(sqlCons);
+        this._db.query(sqlCons, (erro, resultados) => {
+            callback(erro, resultados);
+        });
     }
 
 }
