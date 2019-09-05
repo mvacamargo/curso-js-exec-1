@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 
-app.use('/estatico', express.static('src/app/views/clientes'));
+app.use('/estatico', express.static('src/app/view'));
 
 const indexRoute = require('../app/route/IndexRoute');
 indexRoute(app);
