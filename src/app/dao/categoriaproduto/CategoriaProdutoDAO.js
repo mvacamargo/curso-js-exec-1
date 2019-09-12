@@ -4,14 +4,19 @@ class CategoriaProdutoDAO {
         this._db = db;
     }
 
-    selectAll(callback) {
-        var sqlCons = "SELECT * FROM CATEGORIAPRODUTO AS a ORDER BY a.descCatProd";
-        console.log(sqlCons);
-        this._db.query(sqlCons, (erro, resultados) => {
-            callback(erro, resultados);
+    selectAll() {
+        return new Promise((resolve, reject) => {
+            var sqlCons = "SELECT * FROM CATEGORIAPRODUTO AS a ORDER BY a.descCatProd";
+            console.log(sqlCons);
+            this._db.query(sqlCons, function (erro, resultado) {
+                if (erro) {
+                    console.log(erro);
+                    return reject('CATEGORIA - ALL - ERRO!');
+                }
+                return resolve(resultado);
+            });
         });
     }
-
 }
 
 module.exports = CategoriaProdutoDAO;

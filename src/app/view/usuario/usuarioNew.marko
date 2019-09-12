@@ -18,22 +18,29 @@
         <h3 class="padding-15">Novo Usuário</h3>
       </div>
       <div class="row">
+      <ul class="col-md-12">
+      <for|erro| of=data.errosValidacao>
+         <li>${erro.msg}</li>
+      </for>
+      </ul>
+      </div>
+      <div class="row">
         <form action="/usuario" method="post" class="col-md-12">
           <div class="form-group">
             <label for="nome">Nome</label>
-            <input type="text" class="form-control" id="nome" name="nome" autofocus/>
+            <input type="text" class="form-control" id="nome" name="nome" maxlength="50" autofocus/>
           </div>
           <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email"/>
+            <input type="email" class="form-control" id="email" name="email" maxlength="40"/>
           </div>
           <div class="form-group">
             <label for="login">Login</label>
-            <input type="text" class="form-control" id="login" name="login"/>
+            <input type="text" class="form-control" id="login" name="login" maxlength="10"/>
           </div>
           <div class="form-group">
             <label for="senha">Senha</label>
-            <input type="password" class="form-control" id="senha" name="senha"/>
+            <input type="password" class="form-control" id="senha" name="senha" maxlength="10"/>
           </div>
           <button class="btn btn-lg btn-primary btn-block" type="submit">Cadastrar</button>
         </form>

@@ -18,29 +18,29 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><script src=\"https://code.jquery.com/jquery-3.4.1.min.js\" integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\" crossorigin=\"anonymous\"></script><script>\r\n    function carregaProdutos(){\r\n      alert($(\"#cmbCategoria option:selected\").val());\r\n      $.ajax({\r\n        method: \"GET\",\r\n        url: \"http://localhost:3000/produto/\" + $(\"#cmbCategoria option:selected\").val()        \r\n      }).done(function( data ) {\r\n        alert( \"Data Saved: \" + data );\r\n      });\r\n    }\r\n    </script></head><body>");
+  out.w("<!doctype html><html lang=\"pt-br\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1, shrink-to-fit=no\"><title>Primeiro exercício do Curso de Javascript.</title><script src=\"https://code.jquery.com/jquery-3.4.1.min.js\" integrity=\"sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=\" crossorigin=\"anonymous\"></script><script src=\"https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js\" integrity=\"sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49\" crossorigin=\"anonymous\"></script><script src=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js\" integrity=\"sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy\" crossorigin=\"anonymous\"></script><script src=\"/estatico/js/default.js\"></script><link rel=\"stylesheet\" href=\"https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css\" integrity=\"sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO\" crossorigin=\"anonymous\"><link rel=\"stylesheet\" href=\"/estatico/css/default.css\"></head><body>");
 
   component_globals_tag({}, out);
 
-  out.w("<h1>PRODUTO</h1><label>Categorias</label><select id=\"cmbCategoria\" onchange=\"carregaProdutos()\">");
+  out.w("<div class=\"container col-md-6 col-md-offset-3\"><div class=\"row\"><h3 class=\"padding-15\">Listagem de Produtos</h3></div><div class=\"row\"><h4 class=\"padding-15\">Categorias</h4></div><div class=\"row\">");
 
   var $for$0 = 0;
 
   marko_forEach(data.categorias, function(categoria) {
     var $keyScope$0 = "[" + (($for$0++) + "]");
 
-    out.w("<option" +
-      marko_attr("value", "" + categoria.idCatProd) +
-      ">" +
+    out.w("<div class=\"col-sm-6\"><div class=\"card\"><div class=\"card-body\"><a href=\"javascript:;\"" +
+      marko_attr("onclick", ("carregaProdutos(" + categoria.idCatProd) + ")") +
+      " class=\"btn btn-primary btn-block\">" +
       marko_escapeXml(categoria.descCatProd) +
-      "</option>");
+      "</a></div></div></div>");
   });
 
-  out.w("</select><label>Produtos</label><select id=\"cmbProduto\"></select>");
+  out.w("</div><div class=\"row\"><h4 class=\"padding-15\">Produtos</h4></div><div class=\"row\" id=\"sec-prod\"><h6 class=\"padding-15\">Sem resultados...</h6></div><div class=\"row\"><h4 class=\"padding-15\">Detalhes do Produto</h4></div><div class=\"row\" id=\"sec-prod-info\"><h6 class=\"padding-15\">Sem resultados...</h6></div><div class=\"row\"><a href=\"/\" class=\"btn btn-lg btn-default btn-block\">Home</a></div></div>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "11");
+  await_reorderer_tag({}, out, __component, "32");
 
   out.w("</body></html>");
 }

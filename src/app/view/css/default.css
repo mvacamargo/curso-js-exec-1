@@ -15,3 +15,7 @@ body {
 .padding-15 {
     padding-left: 15px;
 }
+
+.card {
+    margin: 10px;
+}

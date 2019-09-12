@@ -13,8 +13,6 @@ const indexRoute = require('../app/route/IndexRoute');
 indexRoute(app);
 const usuarioRoute = require('../app/route/usuario/UsuarioRoute');
 usuarioRoute(app);
-const categoriaProdutoRoute = require('../app/route/categoriaproduto/CategoriaProdutoRoute');
-categoriaProdutoRoute(app);
 const produtoRoute = require('../app/route/produto/ProdutoRoute');
 produtoRoute(app);
 
